@@ -1,0 +1,30 @@
+from turtle import Turtle
+
+R_P_X = 350
+L_P_X = -350
+Y = 0
+POSITIONS = [(R_P_X, Y), (L_P_X, Y)]
+
+class Paddle():
+
+    def __init__(self):
+        self.paddle_list = []
+        self.create_paddles()
+
+    def create_paddles(self):
+        for position in POSITIONS:
+            self.add_paddle(position)
+
+    def add_paddle(self, position):
+        paddle = Turtle('square')
+        paddle.color("white")
+        paddle.penup()
+        paddle.speed("fastest")
+        paddle.shapesize(stretch_len=5)
+        paddle.right(90)
+        paddle.goto(position)
+        self.paddle_list.append(paddle)
+
+
+
+
