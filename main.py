@@ -1,35 +1,26 @@
 from turtle import Screen
 from paddle import Paddle
 
-import time
-
 screen = Screen()
+screen.tracer(0)
 
 screen.setup(width=800, height=600)
 screen.bgcolor("black")
 screen.title("Old School Pong Game")
 
-paddle = Paddle()
+r_paddle = Paddle((350, 0))
+l_paddle = Paddle((-350, 0))
 
-# start listening for key presses that set the snake heading
+# start listening for key presses that move the paddles
 screen.listen()
-screen.onkey(paddle.right_up, "Up")
-screen.onkey(paddle.right_down, "Down")
+screen.onkey(r_paddle.up, "Up")
+screen.onkey(r_paddle.down, "Down")
+screen.onkey(l_paddle.up, "w")
+screen.onkey(l_paddle.down, "s")
 
 game_is_on = True
 while game_is_on:
-    time.sleep(0.1)
-    paddle.move(paddle.right_paddle)
-
-    # detect collision with upper and lower bounds
-    if paddle.right_paddle.ycor() > 290:
-        paddle.right_down()
-    elif paddle.right_paddle.ycor() < -290:
-        paddle.right_up()
-
-
-
-
+    screen.update()
 
 
 screen.exitonclick()
