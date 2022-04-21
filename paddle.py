@@ -1,5 +1,7 @@
 from turtle import Turtle
 
+UP = 90
+DOWN = 270
 R_P_X = 350
 L_P_X = -350
 Y = 0
@@ -10,6 +12,8 @@ class Paddle():
     def __init__(self):
         self.paddle_list = []
         self.create_paddles()
+        self.right_paddle = self.paddle_list[0]
+        self.left_paddle = self.paddle_list[1]
 
     def create_paddles(self):
         for position in POSITIONS:
@@ -24,6 +28,15 @@ class Paddle():
         paddle.right(90)
         paddle.goto(position)
         self.paddle_list.append(paddle)
+
+    def move(self, paddle):
+        paddle.forward(20)
+
+    def right_up(self):
+        self.right_paddle.setheading(UP)
+
+    def right_down(self):
+        self.right_paddle.setheading(DOWN)
 
 
 
