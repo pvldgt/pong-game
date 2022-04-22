@@ -25,6 +25,14 @@ class Scoreboard(Turtle):
         self.goto(100, 200)
         self.write(self.r_score, align="center", font=("Courier", 80, "normal"))
 
+    def win(self):
+        self.color("red")
+        self.goto(0, 0)
+        if self.l_score > self.r_score:
+            self.write("LEFT PLAYER WON", align="center", font=("Courier", 60, "bold"))
+        else:
+            self.write("RIGHT PLAYER WON", align="center", font=("Courier", 60, "bold"))
+
 
 
 

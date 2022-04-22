@@ -32,6 +32,8 @@ while game_is_on:
     screen.update()
     time.sleep(ball.move_speed)
 
+    ball.move()
+
     # detect collision of the ball with the top or bottom of the screen
     # and make the ball bounce
     if ball.ycor() > 285 or ball.ycor() < -285:
@@ -51,12 +53,17 @@ while game_is_on:
         ball.reset_position()
         scoreboard.score_up("r_score")
 
+    # if the score hits 5, end the game
+    if scoreboard.l_score == 5 or scoreboard.r_score == 5:
+        game_is_on = False
+        scoreboard.win()
 
-    ball.move()
+
 
 screen.exitonclick()
 
 # changed listen methods to onkeypress
 # paddles don't go outside
-#create difficulty levels
-# fix the w problem
+# create difficulty levels
+# make the ball move at an increasing speed
+# play until the score is 5, then display the winner sign
