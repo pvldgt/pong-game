@@ -64,6 +64,6 @@ screen.exitonclick()
 
 # changed listen methods to onkeypress
 # paddles don't go outside
-# create difficulty levels
+# ask for player names?
 # make the ball move at an increasing speed
 # play until the score is 5, then display the winner sign

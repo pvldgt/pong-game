@@ -1,4 +1,4 @@
-from turtle import Turtle
+from turtle import Turtle, Screen
 
 class Scoreboard(Turtle):
 
@@ -10,6 +10,9 @@ class Scoreboard(Turtle):
         self.l_score = 0
         self.r_score = 0
         self.update_score()
+        self.screen = Screen()
+        self.player_names = self.screen.textinput("Enter your names", "Left Player, Right Player")
+        self.left_player, self.right_player = self.player_names.split(",")
 
     def score_up(self, side):
         if side == "l_score":
@@ -29,9 +32,9 @@ class Scoreboard(Turtle):
         self.color("red")
         self.goto(0, 0)
         if self.l_score > self.r_score:
-            self.write("LEFT PLAYER WON", align="center", font=("Courier", 60, "bold"))
+            self.write(f"{self.left_player} WON", align="center", font=("Courier", 60, "bold"))
         else:
-            self.write("RIGHT PLAYER WON", align="center", font=("Courier", 60, "bold"))
+            self.write(f"{self.right_player} WON", align="center", font=("Courier", 60, "bold"))
 
 
 
