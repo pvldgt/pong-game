@@ -18,10 +18,7 @@ l_paddle = Paddle((-350, 0))
 ball = Ball()
 
 # listen for key presses that move the paddles
-
-
 screen.listen()
-
 screen.onkeypress(r_paddle.up, "Up")
 screen.onkeypress(r_paddle.down, "Down")
 screen.onkeypress(l_paddle.up, "w")
@@ -40,12 +37,21 @@ while game_is_on:
         ball.bounce_y()
 
     # detect collision with paddles
-    if (r_paddle.distance(ball) < 50 and ball.xcor() > 320) or (l_paddle.distance(ball) < 50 and ball.xcor() < -320):
+    if (r_paddle.distance(ball) < 50 and ball.xcor() > 330) or (l_paddle.distance(ball) < 50 and ball.xcor() < -330):
         ball.bounce_x()
 
-    # detect if the ball goes past the paddles, if so, move back center and go to the opposite player
+    # if the ball goes past the right paddle, move back center and go to the opposite player
+    if ball.xcor() > 390:
+        ball.reset_position()
 
-
+    # if the ball goes past the left paddle, move back center and go to the opposite player
+    if ball.xcor() < -390:
+        ball.reset_position()
 
 
 screen.exitonclick()
+
+# changed listen methods to onkeypress
+# paddles don't go outside
+#create difficulty levels
+# fix the w problem
