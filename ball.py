@@ -1,4 +1,7 @@
 from turtle import Turtle
+import random
+
+# HEADING = random.randint(0, 360)
 
 
 class Ball(Turtle):
