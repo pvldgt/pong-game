@@ -1,6 +1,8 @@
 from turtle import Screen
 from paddle import Paddle
 from ball import Ball
+from scoreboard import Scoreboard
+
 import time
 
 screen = Screen()
@@ -16,6 +18,7 @@ r_paddle = Paddle((350, 0))
 l_paddle = Paddle((-350, 0))
 
 ball = Ball()
+scoreboard = Scoreboard()
 
 # listen for key presses that move the paddles
 screen.listen()
@@ -27,9 +30,7 @@ screen.onkeypress(l_paddle.down, "s")
 game_is_on = True
 while game_is_on:
     screen.update()
-    time.sleep(0.06)
-
-    ball.move()
+    time.sleep(ball.move_speed)
 
     # detect collision of the ball with the top or bottom of the screen
     # and make the ball bounce
@@ -43,11 +44,15 @@ while game_is_on:
     # if the ball goes past the right paddle, move back center and go to the opposite player
     if ball.xcor() > 390:
         ball.reset_position()
+        scoreboard.score_up("l_score")
 
     # if the ball goes past the left paddle, move back center and go to the opposite player
     if ball.xcor() < -390:
         ball.reset_position()
+        scoreboard.score_up("r_score")
 
+
+    ball.move()
 
 screen.exitonclick()
 
