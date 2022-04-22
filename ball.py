@@ -1,7 +1,4 @@
 from turtle import Turtle
-import random
-
-# HEADING = random.randint(0, 360)
 
 
 class Ball(Turtle):
@@ -9,10 +6,11 @@ class Ball(Turtle):
     def __init__(self):
         super().__init__()
         self.shape("circle")
-        self.color("white")
+        self.color("yellow")
         self.penup()
         self.x_move = 10
         self.y_move = 10
+        # set up the initial ball speed
         self.move_speed = 0.1
 
     def move(self):
@@ -21,13 +19,19 @@ class Ball(Turtle):
         self.goto(new_x, new_y)
 
     def bounce_y(self):
+        # when the ball hit the floor or the ceiling it will change the y_move
+        # to the opposite sign to move in the opposite y direction
         self.y_move *= -1
 
     def bounce_x(self):
+        # when the ball hits a paddle, the x_move will change the sign
+        # so that the ball moves in the opposite x direction
         self.x_move *= -1
+        # after each paddle hit the ball speed increases just a little bit
         self.move_speed *= 0.9
 
     def reset_position(self):
         self.goto(0, 0)
         self.bounce_x()
+        # after each round the ball speed is set to 0.05 (the initial 0.1 is too slow)
         self.move_speed = 0.05

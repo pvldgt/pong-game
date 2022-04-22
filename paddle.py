@@ -19,11 +19,13 @@ class Paddle(Turtle):
         self.forward(20)
 
     def up(self):
+        # the paddle won't go to far up by checking the ycor
         if self.ycor() < 300:
             self.setheading(UP)
             self.move()
 
     def down(self):
+        # the paddle won't go to far down by checking the ycor
         if self.ycor() > -300:
             self.setheading(DOWN)
             self.move()
