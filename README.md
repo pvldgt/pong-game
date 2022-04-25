@@ -2,7 +2,7 @@
 
 This is an old school pong game built on python using the 
 turtle graphics library. 
-The basic version of the game was build following the steps outlined in 
+The basic version of the game was built following the steps outlined in 
 the "100 days of code" course on Udemy 
 https://www.udemy.com/course/100-days-of-code/
 
