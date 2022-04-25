@@ -59,9 +59,3 @@ while game_is_on:
         scoreboard.win()
 
 screen.exitonclick()
-
-# changed listen methods to onkeypress
-# paddles don't go outside
-# ask for player names?
-# make the ball move at an increasing speed
-# play until the score is 5, then display the winner's name
